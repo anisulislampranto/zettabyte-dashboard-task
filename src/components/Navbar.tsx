@@ -122,7 +122,7 @@ function NavBar() {
 
 
                             <motion.a
-                                href='/profile'
+                                onClick={() => handleNavClick('/profile')}
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                                 className="cursor-pointer p-2 text-white bg-gradient-to-r from-red-700 to-black rounded-lg"
@@ -200,7 +200,7 @@ function NavBar() {
                                 </motion.div>
                             ))}
 
-                            <motion.a href='/profile' variants={itemVariants} >
+                            <motion.a onClick={() => handleNavClick('/profile')} variants={itemVariants} >
                                 <motion.button
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.95 }}
