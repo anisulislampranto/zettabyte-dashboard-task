@@ -61,7 +61,7 @@ const hamburgerVariants: Variants = {
 };
 
 const NAV_ITEMS = [
-    { name: 'Dashboard', href: '#' },
+    { name: 'Dashboard', href: '/' },
     { name: 'Posts', href: '#' },
     { name: 'Users', href: '#' },
 ];
