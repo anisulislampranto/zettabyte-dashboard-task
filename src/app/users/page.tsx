@@ -20,7 +20,7 @@ export default function UsersPage() {
     };
 
     return (
-        <div className="p-6 pt-20 min-h-screen bg-gray-50">
+        <div className="px-4 sm:px-6 lg:px-8 pt-20 min-h-screen bg-gray-50">
             <h1 className="text-2xl font-bold text-gray-800 mb-6">Users</h1>
 
             {loading ? (

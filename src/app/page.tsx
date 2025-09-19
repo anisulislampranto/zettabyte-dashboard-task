@@ -30,7 +30,7 @@ const chartData: ChartData[] = [
 
 export default function DashboardPage() {
   return (
-    <div className="p-6 pt-20 space-y-6 bg-gray-50 min-h-screen">
+    <div className="px-4 sm:px-6 lg:px-8 pt-20 space-y-6 bg-gray-50 min-h-screen">
       <div
         className="rounded-lg bg-white p-6 shadow-md"
       >
