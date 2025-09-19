@@ -146,6 +146,24 @@ function NavBar() {
                         exit="closed"
                         className="fixed inset-0 z-50 bg-gradient-to-r from-red-700 to-black flex items-center justify-center"
                     >
+
+                        <motion.div
+                            variants={containerVariants}
+                            initial="closed"
+                            animate="open"
+                            className="absolute top-3 p-1 left-5 rounded px-2 flex space-x-0 bg-gradient-to-r from-red-700 to-black"
+                        >
+                            {"Zettabyte".split("").map((char, idx) => (
+                                <motion.span
+                                    key={idx}
+                                    variants={itemVariants}
+                                    className="text-lg font-bold text-white inline-block"
+                                >
+                                    {char}
+                                </motion.span>
+                            ))}
+                        </motion.div>
+
                         <motion.div
                             variants={containerVariants}
                             initial="closed"
