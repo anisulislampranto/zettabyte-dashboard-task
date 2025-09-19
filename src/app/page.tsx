@@ -1,3 +1,4 @@
+import { auth } from "@/auth";
 import * as motion from "motion/react-client"
 
 type Stat = { title: string; value: string; icon: string; bg: string };
@@ -28,13 +29,15 @@ const chartData: ChartData[] = [
   { label: "Sun", posts: 9, users: 35 },
 ];
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const session = await auth();
+
   return (
     <div className="px-4 sm:px-6 lg:px-8 pt-20 space-y-6 bg-gray-50 min-h-screen">
       <div
         className="rounded-lg bg-white p-6 shadow-md"
       >
-        <h1 className="text-2xl font-bold text-gray-800">Welcome back, Anisul! 👋</h1>
+        <h1 className="text-2xl font-bold text-gray-800">Welcome back{session?.user?.name ? `, ${session.user.name}` : ''}! 👋</h1>
         <p className="mt-2 text-gray-600">Here&apos;s a quick overview of your posts & users.</p>
       </div>
 

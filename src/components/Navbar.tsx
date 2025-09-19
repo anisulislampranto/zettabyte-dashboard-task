@@ -121,13 +121,14 @@ function NavBar() {
                             ))}
 
 
-                            <motion.button
+                            <motion.a
+                                href='/profile'
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                                 className="cursor-pointer p-2 text-white bg-gradient-to-r from-red-700 to-black rounded-lg"
                             >
                                 <User className="w-5 h-5 " />
-                            </motion.button>
+                            </motion.a>
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -199,7 +200,7 @@ function NavBar() {
                                 </motion.div>
                             ))}
 
-                            <motion.div variants={itemVariants} >
+                            <motion.a href='/profile' variants={itemVariants} >
                                 <motion.button
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.95 }}
@@ -209,7 +210,7 @@ function NavBar() {
                                     <User className="w-10 h-10" />
                                     <span>Profile</span>
                                 </motion.button>
-                            </motion.div>
+                            </motion.a>
                         </motion.div>
 
                         <motion.button
