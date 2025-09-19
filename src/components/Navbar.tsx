@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { Menu, X, User } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const mobileMenuVariants: Variants = {
     closed: {
@@ -68,6 +69,13 @@ const NAV_ITEMS = [
 
 function NavBar() {
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const router = useRouter();
+    const [pendingNavigation, setPendingNavigation] = useState<string | null>(null);
+
+    const handleNavClick = (href: string) => {
+        setPendingNavigation(href);
+        setIsOpen(false);
+    };
 
     const handleMenuToggle = () => {
         setIsOpen(!isOpen);
@@ -137,7 +145,14 @@ function NavBar() {
             </nav>
 
             {/* Mobile Fullscreen Menu */}
-            <AnimatePresence>
+            <AnimatePresence
+                onExitComplete={() => {
+                    if (pendingNavigation) {
+                        router.push(pendingNavigation);
+                        setPendingNavigation(null);
+                    }
+                }}
+            >
                 {isOpen && (
                     <motion.div
                         variants={mobileMenuVariants}
@@ -174,11 +189,10 @@ function NavBar() {
                             {NAV_ITEMS.map((item) => (
                                 <motion.div key={item.name} variants={itemVariants}>
                                     <motion.a
-                                        href={item.href}
                                         whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.95 }}
-                                        onClick={handleMenuClose}
-                                        className="block text-4xl md:text-5xl font-bold text-white transition-colors duration-300"
+                                        onClick={() => handleNavClick(item.href)}
+                                        className="cursor-pointer block text-4xl md:text-5xl font-bold text-white transition-colors duration-300"
                                     >
                                         {item.name}
                                     </motion.a>
