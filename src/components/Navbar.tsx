@@ -65,6 +65,7 @@ const NAV_ITEMS = [
     { name: 'Dashboard', href: '/' },
     { name: 'Posts', href: '/posts' },
     { name: 'Users', href: '/users' },
+    { name: 'Profile', href: '/profile' },
 ];
 
 function NavBar() {
@@ -114,21 +115,11 @@ function NavBar() {
                                     href={item.href}
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0 }}
-                                    className="font-medium bg-gradient-to-r from-red-700 to-black bg-clip-text text-transparent"
+                                    className={`font-medium bg-gradient-to-r from-red-700 to-black bg-clip-text ${item.name === 'Profile' ? '' : 'text-transparent'}`}
                                 >
-                                    {item.name}
+                                    {item.name === 'Profile' ? <User className="w-5 h-5 " /> : item.name}
                                 </motion.a>
                             ))}
-
-
-                            <motion.a
-                                onClick={() => handleNavClick('/profile')}
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="cursor-pointer p-2 text-white bg-gradient-to-r from-red-700 to-black rounded-lg"
-                            >
-                                <User className="w-5 h-5 " />
-                            </motion.a>
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -193,24 +184,12 @@ function NavBar() {
                                         whileHover={{ scale: 1.1 }}
                                         whileTap={{ scale: 0.95 }}
                                         onClick={() => handleNavClick(item.href)}
-                                        className="cursor-pointer block text-4xl md:text-5xl font-bold text-white transition-colors duration-300"
+                                        className="cursor-pointer flex justify-center items-center text-4xl md:text-5xl font-bold text-white transition-colors duration-300"
                                     >
-                                        {item.name}
+                                        {item.name === 'Profile' && <User className="w-10 h-10" />} {item.name}
                                     </motion.a>
                                 </motion.div>
                             ))}
-
-                            <motion.a onClick={() => handleNavClick('/profile')} variants={itemVariants} >
-                                <motion.button
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    onClick={handleMenuClose}
-                                    className="cursor-pointer flex items-center justify-center mx-auto space-x-3 text-4xl font-semibold text-white transition-colors duration-300"
-                                >
-                                    <User className="w-10 h-10" />
-                                    <span>Profile</span>
-                                </motion.button>
-                            </motion.a>
                         </motion.div>
 
                         <motion.button
