@@ -62,8 +62,8 @@ const hamburgerVariants: Variants = {
 
 const NAV_ITEMS = [
     { name: 'Dashboard', href: '/' },
-    { name: 'Posts', href: '#' },
-    { name: 'Users', href: '#' },
+    { name: 'Posts', href: '/posts' },
+    { name: 'Users', href: '/users' },
 ];
 
 function NavBar() {

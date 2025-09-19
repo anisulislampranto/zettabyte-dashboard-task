@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+.table-cell {
+  @apply px-6 py-4 text-sm text-gray-800;
+}
+
+.table-header {
+  @apply px-6 py-3 text-left text-sm font-semibold text-gray-700;
+}
