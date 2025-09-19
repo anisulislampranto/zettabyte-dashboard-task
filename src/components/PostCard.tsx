@@ -15,7 +15,7 @@ export default function PostCard({ post, index }: { post: Post; index?: number }
             <h3 className="font-semibold">{post.title}</h3>
             <p className="text-sm text-gray-600 line-clamp-2">{post.body}</p>
             <div className="mt-3">
-                <Link href={`/posts/${post.id}`} className="text-sm text-indigo-600">
+                <Link href={`/posts/${post.id}`} className="text-sm text-gray-600 hover:text-indigo-600">
                     Read more →
                 </Link>
             </div>
